@@ -1,0 +1,48 @@
+\usepackage{graphicx}
+\usepackage{luatexja}
+\usepackage{amsmath,amssymb}
+\hypersetup{unicode=true}
+\hypersetup{colorlinks=true, linkcolor=blue, urlcolor=blue}
+
+\usetheme{Berlin}
+\usecolortheme{whale}
+
+\usefonttheme{professionalfonts} % 数式のフォントを綺麗に
+% \setbeamertemplate{frametitle}[default][center] %フレームのタイトルを中央に
+\setbeamertemplate{navigation symbols}{}   % 末尾のシンボル削除
+\setbeamercovered{transparent}             % 未公開部分を半透明で表示
+\setbeamertemplate{footline}[page number]  % 
+\setbeamertemplate{bibliography item}[text] %引用がまともに動く
+\setbeamerfont{footline}{size=\normalsize,series=\bfseries} %
+
+% 上下端の情報開示
+\setbeamertemplate{headline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right,rightskip=1em]{section in head/foot}%
+   \usebeamerfont{subsection in head/foot}\hspace*{2ex}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center,leftskip=1em]{subsection in head/foot}%
+   \usebeamerfont{section in head/foot}\insertsectionhead\hspace*{2ex}
+  \end{beamercolorbox}}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,left,leftskip=1em]{subsection in head/foot}%
+   \usebeamerfont{section in head/foot}\insertsubsectionhead\hspace*{2ex}
+  \end{beamercolorbox}%
+  \vskip0pt%
+}
+
+\makeatletter
+\setbeamertemplate{footline} {
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+   \usebeamerfont{author in head/foot}\insertshortauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+    \insertframenumber{} / \inserttotalframenumber\hspace*{2ex}
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+\makeatother
