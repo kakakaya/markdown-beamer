@@ -25,7 +25,7 @@ def initialize(path, force):
     # 各ファイルをコピーしてくる
     for f in ["lib", "tmp", "output", "body.md"]:
         copy_from = os.path.split(os.path.abspath(sys.argv[0]))[0]+"/"+f
-        print("cp -r "+copy_from+" "+path)
+        os.system("cp -r "+copy_from+" "+path)
 
 
 def make(path):
@@ -39,7 +39,6 @@ def make(path):
     for head in headers:
         cmd += " -H lib/{0}".format(head)
     cmd += " -t beamer -i body.md -o output/output.pdf"
-    print(cmd)
     os.system(cmd)
 
 
