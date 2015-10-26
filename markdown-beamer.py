@@ -67,7 +67,7 @@ def main():
     if args.init is not False:
         if args.init is None:
             # 作成先が未指定ならカレントディレクトリを対象にする
-            initialize(working_directory)
+            initialize(working_directory, args.force)
         else:
             initialize(args.init, args.force)
     else:
