@@ -24,7 +24,7 @@ def initialize(path, force):
 
     # 各ファイルをコピーしてくる
     for f in ["lib", "tmp", "output", "body.md"]:
-        copy_from = os.path.split(os.path.abspath(sys.argv[0]))[0]+"/"+f
+        copy_from = os.path.split(os.path.realpath(sys.argv[0]))[0]+"/"+f
         os.system("cp -r "+copy_from+" "+path)
 
 
