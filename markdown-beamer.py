@@ -28,9 +28,9 @@ def initialize(path, force):
         os.system("cp -r "+copy_from+" "+path)
 
 
-def make(path):
+def make_slide(path):
     # ファイル存在確認
-    for f in ["lib", "tmp", "output", "body.md"]:
+    for f in ["lib", "body.md"]:
         if f not in os.listdir(path):
             raise Exception("[Error]File not found: {0}, working directory might bad?".format(f))
 
@@ -52,6 +52,12 @@ def main():
         default=False,
     )
     parser.add_argument(
+        "--slide",
+        help="このオプションを指定した場合、スライドを生成します。",
+        action='store_true',
+        default=False
+    )
+    parser.add_argument(
         "-i", "--init",
         action='store',
         nargs="?",
@@ -70,8 +76,11 @@ def main():
             initialize(working_directory, args.force)
         else:
             initialize(args.init, args.force)
-    else:
-        make(working_directory)
+    if args.slide:
+        make_slide(working_directory)
+
+    if args.init is False and sum(args.slide, args.resume, args.shortreport, args.tcreport, args.report) == 0:
+        print("オプションが指定されなかったので、なにもしませんでした。")
 
 
 if __name__ == "__main__":
